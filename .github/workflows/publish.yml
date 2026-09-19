@@ -1,0 +1,25 @@
+# Tag a release (`git tag v0.1.1 && git push --tags`) and npm gets it.
+# Uses npm trusted publishing (OIDC) — no token, no 2FA prompt.
+# Configure the trusted publisher once at npmjs.com → dsh-rename → Settings.
+name: publish
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
+      - run: npm publish --access public --provenance
