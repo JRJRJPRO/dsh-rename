@@ -1,0 +1,46 @@
+{
+  "name": "dsh-rename",
+  "version": "0.1.0",
+  "description": "Adds a /rename slash command to DeepSeek Harness for retitling the current session.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "session",
+    "rename"
+  ],
+  "license": "MIT",
+  "author": "Rongjie Jiang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JRJRJPRO/dsh-rename.git"
+  },
+  "homepage": "https://github.com/JRJRJPRO/dsh-rename#readme",
+  "bugs": {
+    "url": "https://github.com/JRJRJPRO/dsh-rename/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    }
+  }
+}
